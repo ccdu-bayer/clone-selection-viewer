@@ -10,6 +10,7 @@ config.R
 *.key
 .httr-oauth
 .credentials/
+credentials/
 
 # Temporary files
 *~
