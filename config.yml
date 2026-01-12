@@ -1,0 +1,32 @@
+default:
+  bigquery:
+    project_id: !expr Sys.getenv("GCP_PROJECT_ID")
+    dataset: !expr Sys.getenv("BIGQUERY_DATASET")
+    billing_project: !expr Sys.getenv("BIGQUERY_BILLING_PROJECT")
+    location: !expr Sys.getenv("BIGQUERY_LOCATION", "US")
+  
+  app:
+    title: "Cloning Data UI"
+    debug: false
+
+development:
+  bigquery:
+    project_id: !expr Sys.getenv("GCP_PROJECT_ID")
+    dataset: !expr Sys.getenv("BIGQUERY_DATASET")
+    billing_project: !expr Sys.getenv("BIGQUERY_BILLING_PROJECT")
+    location: !expr Sys.getenv("BIGQUERY_LOCATION", "US")
+  
+  app:
+    title: "Cloning Data UI (Dev)"
+    debug: true
+
+production:
+  bigquery:
+    project_id: !expr Sys.getenv("GCP_PROJECT_ID")
+    dataset: !expr Sys.getenv("BIGQUERY_DATASET")
+    billing_project: !expr Sys.getenv("BIGQUERY_BILLING_PROJECT")
+    location: !expr Sys.getenv("BIGQUERY_LOCATION", "US")
+  
+  app:
+    title: "Cloning Data UI"
+    debug: false
