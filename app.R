@@ -219,14 +219,14 @@ server <- function(input, output, session) {
   })
   
   # Load data on app start
-  observeEvent(TRUE, {
+  observe({
     withProgress(message = 'Loading data from BigQuery...', value = 0, {
       incProgress(0.5)
       data_store$data <- fetch_bigquery_data()
       data_store$last_update <- Sys.time()
       incProgress(1)
     })
-  }, once = TRUE)
+  }, priority = 100)  # High priority to run first
   
   # Refresh data when button is clicked
   observeEvent(input$refresh_data, {
@@ -292,7 +292,7 @@ server <- function(input, output, session) {
         mutate(date = as.Date(date_created)) %>%
         count(date) %>%
         ggplot(aes(x = date, y = n)) +
-        geom_line(color = "#3c8dbc", size = 1.2) +
+        geom_line(color = "#3c8dbc", linewidth = 1.2) +
         geom_point(color = "#3c8dbc", size = 2) +
         theme_minimal() +
         labs(title = "", x = "Date", y = "Number of Clones") +
