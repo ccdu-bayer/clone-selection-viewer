@@ -19,8 +19,11 @@ renv/staging/
 # Credentials and environment variables
 .Renviron
 .env
-*.json
+
+# Keep configuration JSON files but exclude credentials
 !renv.lock
+!renv/settings.json
+!config.json
 
 # GCP service account keys
 *-key.json
