@@ -1,0 +1,29 @@
+# Git files
+.git
+.gitignore
+
+# Documentation
+*.md
+
+# Configuration and credentials
+config.R
+*.json
+*.key
+credentials/
+
+# R files
+.Rhistory
+.RData
+.Rproj.user
+*.Rproj
+
+# Temporary files
+*~
+.DS_Store
+
+# Logs
+*.log
+
+# Scripts
+deploy.sh
+install.R

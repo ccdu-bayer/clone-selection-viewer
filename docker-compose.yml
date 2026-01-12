@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  cloning-ui:
+    build: .
+    container_name: cloning-ui-dashboard
+    ports:
+      - "3838:3838"
+    environment:
+      - GCP_PROJECT_ID=${GCP_PROJECT_ID}
+      - BQ_DATASET=${BQ_DATASET}
+      - BQ_TABLE=${BQ_TABLE}
+      - GCP_KEY_PATH=/srv/shiny-server/cloning-ui/credentials/key.json
+    volumes:
+      # Mount your GCP credentials
+      - ./credentials:/srv/shiny-server/cloning-ui/credentials:ro
+      # Optionally mount config.R
+      - ./config.R:/srv/shiny-server/cloning-ui/config.R:ro
+    restart: unless-stopped
