@@ -1,0 +1,42 @@
+# R specific files
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# RStudio files
+*.Rproj.user
+
+# renv files (keep renv.lock but not library)
+renv/library/
+renv/local/
+renv/cellar/
+renv/lock/
+renv/python/
+renv/sandbox/
+renv/staging/
+
+# Credentials and environment variables
+.Renviron
+.env
+*.json
+!renv.lock
+
+# GCP service account keys
+*-key.json
+*-credentials.json
+gcp-key*.json
+
+# Temporary files
+*.tmp
+*.log
+*.swp
+*~
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Package build artifacts
+*.tar.gz
+*.zip

@@ -1,0 +1,19 @@
+# GCP Configuration Template
+# Copy this file to .Renviron and fill in your actual values
+# IMPORTANT: Never commit .Renviron to git!
+
+# GCP Project ID
+GCP_PROJECT_ID=your-gcp-project-id
+
+# GCP Service Account Key File Path (Windows format)
+# Example: C:/Users/YourName/Documents/gcp-credentials/service-account-key.json
+GCP_AUTH_FILE=path/to/your/service-account-key.json
+
+# BigQuery Dataset
+BIGQUERY_DATASET=your-dataset-name
+
+# BigQuery Billing Project (usually same as GCP_PROJECT_ID)
+BIGQUERY_BILLING_PROJECT=your-gcp-project-id
+
+# Optional: Set default location for BigQuery operations
+BIGQUERY_LOCATION=US
