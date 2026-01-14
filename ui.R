@@ -82,10 +82,38 @@ ui <- dashboardPage(
     br(), br(),
     actionButton("refresh_data", "Refresh Data", 
                  icon = icon("refresh"),
-                 style = "margin-left: 15px; margin-right: 15px; width: calc(100% - 30px);")
+                 style = "margin-left: 15px; margin-right: 15px; width: calc(100% - 30px);"),
+    hr(),
+    
+    box(
+      width = 12,
+      background = "light-blue",
+      tags$h5(tags$b("How to Use:")),
+      tags$ol(
+        tags$li("Select one or more sets"),
+        tags$li("Wait for filters to load"),
+        tags$li("Optionally filter by source/clone"),
+        tags$li("Click 'Apply Filters'"),
+        tags$li("View charts and tables")
+      )
+    )
   ),
   
   dashboardBody(
+    # manually added:
+    # Filter Summary Box
+    fluidRow(
+      box(
+        width = 12,
+        status = "info",
+        solidHeader = FALSE,
+        collapsible = TRUE,
+        collapsed = FALSE,
+        title = "Current Filters",
+        uiOutput("filter_summary")
+      )
+    ), # end of manually added
+    
     tabItems(
       # Overview Tab
       tabItem(
@@ -153,7 +181,7 @@ ui <- dashboardPage(
         )
       ),
       
-      # Data Explorer Tab
+      # Data Explorer Tab : manually updated
       tabItem(
         tabName = "explorer",
         fluidRow(
@@ -182,8 +210,20 @@ ui <- dashboardPage(
             status = "success",
             solidHeader = TRUE,
             width = 12,
-            p("Use the buttons in the table headers to export data as CSV or Excel."),
-            downloadButton("download_full_data", "Download Complete Dataset", class = "btn-primary")
+            fluidRow(
+              column(4,
+                     downloadButton("download_full_data", "Download Filtered Data (CSV)", 
+                                    class = "btn-success btn-block")
+              ),
+              column(4,
+                     downloadButton("download_summary", "Download Summary Stats (CSV)", 
+                                    class = "btn-info btn-block")
+              ),
+              column(4,
+                     downloadButton("download_parent", "Download Parent Table (CSV)", 
+                                    class = "btn-primary btn-block")
+              )
+            )
           )
         )
       )
