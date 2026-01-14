@@ -5,7 +5,7 @@ R-based Shiny application to display nominated cloning data from Google Cloud Bi
 ## Quick Start
 
 ### Prerequisites
-- R (>= 4.3.2)
+- R (>= 4.5.1)
 - RStudio Desktop
 - Google Cloud Platform account with BigQuery access
 - GCP service account key file (JSON)
