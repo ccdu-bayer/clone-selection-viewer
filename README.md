@@ -68,11 +68,17 @@ cd clone-selection-viewer
  
 #### Project Structure
 
-- `app.R` - Main Shiny application
+- `app.R` - Main Shiny application -- do not use it as it was created by copilot
 - `config.yml` - Application configuration
 - `renv.lock` - R package dependencies
 - `.Renviron.template` - Environment variable template
 - `test_bigquery_connection.R` - Connection testing script
+- `bigquery_helper.R` - connect GCP bigquery and get data from
+- `global.R` - init and set the global env vars
+- `global-local.R` - init and set the global env vars for local development, has to rename as global.R when using it
+- `server.R` - server related for business logic and data loading from GCP/bigquery
+- `ui.R` - the user interface script for this app
+- `vault_helper.R` - connect to Vault and get the GCP service count credential
 
 
  
