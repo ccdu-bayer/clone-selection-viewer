@@ -18,7 +18,7 @@ query_bigquery <- function(project_id, sql_query, max_rows = MAX_QUERY_ROWS) {
     
     start_time <- Sys.time()
     result <- bq_project_query(project_id, sql_query, use_legacy_sql = FALSE)
-    data <- bq_table_download(result, max_results = max_rows)
+    data <- bq_table_download(result, n_max = max_rows)
     
     end_time <- Sys.time()
     elapsed <- as.numeric(difftime(end_time, start_time, units = "secs"))
