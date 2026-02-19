@@ -7,6 +7,13 @@ server <- function(input, output, session) {
     summary_stats = NULL,
     filter_options_loaded = FALSE
   )
+  output$username <- renderText({
+    if (!is.null(session$user) && session$user != "") {
+      paste("Logged in as:", session$user)
+    } else {
+      "Guest User"
+    }
+  })
   
   # ============================================================
   # STEP 1: Load ONLY parent table on startup (fast!)

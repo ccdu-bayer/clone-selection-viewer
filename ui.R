@@ -103,6 +103,11 @@ ui <- dashboardPage(
     # manually added:
     # Filter Summary Box
     fluidRow(
+      column(12,
+             h3("Welcome to the Home Page"),
+             span(textOutput("username", inline = TRUE), style = "font-size: 16px; color: #2c3e50;"),
+             h2("Rearray Viewer.")
+      ),
       box(
         width = 12,
         status = "info",
